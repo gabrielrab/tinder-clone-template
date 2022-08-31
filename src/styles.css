@@ -1,0 +1,31 @@
+@font-face {
+  font-family: "Metropolis Bold";
+  font-style: normal;
+  font-weight: normal;
+  src: url("./assets/fonts/Metropolis-SemiBold.woff") format("woff");
+}
+
+@font-face {
+  font-family: "Metropolis Medium";
+  font-style: normal;
+  font-weight: normal;
+  src: url("./assets/fonts/Metropolis-Medium.woff") format("woff");
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+input,
+select {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+}
+
+body {
+  font-family: "Metropolis Medium", sans-serif;
+  color: #424242;
+}
