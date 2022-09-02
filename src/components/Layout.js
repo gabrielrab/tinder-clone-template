@@ -1,5 +1,11 @@
 import React from "react";
+import Navbar from "./Navbar";
 
 export default function Layout({ children }) {
-  return <main>{children}</main>;
+  return (
+    <main>
+      <Navbar />
+      {children}
+    </main>
+  );
 }
