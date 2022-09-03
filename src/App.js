@@ -1,10 +1,6 @@
 import "./styles.css";
+import { Layout } from "./components";
 
 export default function App() {
-  return (
-    <div>
-      <h1>Hello World!</h1>
-      <h5>@cacomp_s</h5>
-    </div>
-  );
+  return <Layout>Go é muito ruim!</Layout>;
 }
