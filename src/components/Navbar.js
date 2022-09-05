@@ -1,10 +1,10 @@
 import React from "react";
-import Logo from "../assets/svgs/brand-logo.svg";
+import Brand from "./Brand";
 
 export default function Navbar() {
   return (
     <nav>
-      <img src={Logo} alt="Logo" />
+      <Brand />
     </nav>
   );
 }

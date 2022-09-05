@@ -1,6 +1,6 @@
 import "./styles.css";
-import { Layout } from "./components";
+import Router from "./router";
 
 export default function App() {
-  return <Layout>Go é muito ruim!</Layout>;
+  return <Router />;
 }
