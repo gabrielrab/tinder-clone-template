@@ -49,7 +49,7 @@ export default function ConfigPage() {
       </div>
       <Divider />
       <Title text="Buscar pessoas até" />
-      {/* <Range /> */}
+      <Range min={1} max={100} />
       <Button text="Editar perfil" />
     </Layout>
   );

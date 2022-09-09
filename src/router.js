@@ -27,11 +27,32 @@ export default function Router() {
     <BrowserRouter>
       <AccountProvider>
         <Routes>
-          <Route path="/" element={<IndexPage />} />
+          <Route
+            path="/"
+            element={
+              <PrivateRoute>
+                <IndexPage />
+              </PrivateRoute>
+            }
+          />
           <Route path="/signup" element={<SignUpPage />} />
           <Route path="/login" element={<LoginPage />} />
-          <Route path="/match" element={<MatchPage />} />
-          <Route path="/config" element={<ConfigPage />} />
+          <Route
+            path="/match"
+            element={
+              <PrivateRoute>
+                <MatchPage />
+              </PrivateRoute>
+            }
+          />
+          <Route
+            path="/config"
+            element={
+              // <PrivateRoute>
+              <ConfigPage />
+              // </PrivateRoute>
+            }
+          />
         </Routes>
       </AccountProvider>
     </BrowserRouter>

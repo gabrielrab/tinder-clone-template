@@ -13,6 +13,7 @@ import Container from "./Container";
 import Card from "./Card";
 import CardAction from "./CardAction";
 import Divider from "./Divider";
+import Range from "./Range";
 
 export {
   Navbar,
@@ -30,4 +31,5 @@ export {
   Card,
   CardAction,
   Divider,
+  Range,
 };
