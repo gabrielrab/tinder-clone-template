@@ -12,6 +12,7 @@ import Paragraph from "./Paragraph";
 import Container from "./Container";
 import Card from "./Card";
 import CardAction from "./CardAction";
+import Divider from "./Divider";
 
 export {
   Navbar,
@@ -28,4 +29,5 @@ export {
   Container,
   Card,
   CardAction,
+  Divider,
 };
