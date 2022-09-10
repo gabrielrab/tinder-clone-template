@@ -6,11 +6,12 @@ import {
   Navigate,
   useLocation,
 } from "react-router-dom";
-import IndexPage from "./pages";
-import SignUpPage from "./pages/signup";
-import LoginPage from "./pages/login";
-import MatchPage from "./pages/matchs";
+import SignupPage from "./pages/signup";
+import MainPage from "./pages/index";
+import ProfilePage from "./pages/profile";
 import ConfigPage from "./pages/config";
+import MatchPage from "./pages/matchs";
+import LoginPage from "./pages/login";
 import { isAuthenticated } from "./services/auth";
 import { AccountProvider } from "./services/context";
 
@@ -27,11 +28,40 @@ export default function Router() {
     <BrowserRouter>
       <AccountProvider>
         <Routes>
-          <Route path="/" element={<IndexPage />} />
-          <Route path="/signup" element={<SignUpPage />} />
+          <Route
+            path="/"
+            element={
+              <PrivateRoute>
+                <MainPage />
+              </PrivateRoute>
+            }
+          />
+          <Route
+            path="/profile/:id"
+            element={
+              <PrivateRoute>
+                <ProfilePage />
+              </PrivateRoute>
+            }
+          />
+          <Route
+            path="/config"
+            element={
+              <PrivateRoute>
+                <ConfigPage />
+              </PrivateRoute>
+            }
+          />
+          <Route
+            path="/match"
+            element={
+              <PrivateRoute>
+                <MatchPage />
+              </PrivateRoute>
+            }
+          />
           <Route path="/login" element={<LoginPage />} />
-          <Route path="/match" element={<MatchPage />} />
-          <Route path="/config" element={<ConfigPage />} />
+          <Route path="/signup" element={<SignupPage />} />
         </Routes>
       </AccountProvider>
     </BrowserRouter>

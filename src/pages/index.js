@@ -1,16 +1,20 @@
-import React from "react";
+import React, { useEffect, useContext, useState } from "react";
 import {
-  Layout,
   Avatar,
-  Link,
-  Paragraph,
+  Layout,
   Container,
+  Paragraph,
   Card,
   CardAction,
+  Link,
 } from "../components";
 import spacing from "../const/spacing";
+import api from "../services/api";
+import { AccountContext } from "../services/context";
+import MatchImage from "../assets/images/itsamatch.png";
 
 const WithoutUsersOnRange = () => {
+  const { user } = useContext(AccountContext);
   return (
     <Container
       style={{ minHeight: "500px" }}
@@ -19,7 +23,7 @@ const WithoutUsersOnRange = () => {
     >
       <Avatar
         alt="Foto de perfil"
-        img="https://spinoff.com.br/entrete/wp-content/uploads/2021/10/Bruna-Marquezine-nova-fotos.jpg"
+        img={`http://147.182.143.140:4444/img/${user.id}.jpeg`}
         size="small"
       />
       <Container textAlign="center">
@@ -35,22 +39,47 @@ const WithoutUsersOnRange = () => {
   );
 };
 
-export default function IndexPage() {
-  const users = [
-    {
-      name: "Luva de Pedreiro",
-      age: 20,
-      description: "O melhor de todos. Receba !!!!",
-      picture:
-        "https://conteudo.imguol.com.br/c/esporte/cc/2022/04/07/iran-ferreira-o-cara-da-luva-de-pedreiro-em-quijingue-na-bahia-1649366672373_v2_1x1.jpg",
-    },
-  ];
+const ItsAMatch = ({ ...props }) => {
+  return (
+    <Link to="/match">
+      <div className="match-container">
+        <img src={MatchImage} alt="" />
+        <Avatar
+          img="https://static-wp-tor15-prd.torcedores.com/wp-content/uploads/2022/07/luva-de-pedreiro-promete-surpresa-seguidores.png"
+          alt="Seu match"
+        />
+        <strong>Luva de Pedreiro</strong>
+        <p>Biografia da pessoa...</p>
+      </div>
+    </Link>
+  );
+};
+
+export default function Main() {
+  const [users, setUsers] = useState([]);
+  const { user } = useContext(AccountContext);
+
+  useEffect(() => {
+    async function getUsers() {
+      const requestData = await api.get("/interactions", {
+        headers: {
+          Authorization: `Bearer ${window.localStorage.getItem("token")}`,
+        },
+      });
+
+      if (requestData.status === 200) {
+        setUsers(requestData.data.data);
+      }
+    }
+    getUsers();
+  }, []);
+
   return (
     <Layout>
       {users.length > 0 ? (
         <>
-          <Card profile={users[0]} />
-          <CardAction />
+          <Card profile={users[0]} user={user} />
+          <CardAction profileId={users[0].id} />
         </>
       ) : (
         <WithoutUsersOnRange />
