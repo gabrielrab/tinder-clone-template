@@ -27,7 +27,7 @@ export default function Card({ profile, variant = "normal", user }) {
       <div
         className="card"
         style={{
-          backgroundImage: `url("http://147.182.143.140:4444/img/${profile.id}.jpeg")`,
+          backgroundImage: `url("https://api.yuri.engineer/img/${profile.id}.jpeg")`,
           width: `${variant === "normal" ? "80vw" : "45vw"}`,
         }}
       >

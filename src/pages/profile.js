@@ -10,7 +10,11 @@ export default function ProfilePage() {
 
   useEffect(() => {
     async function getUserProfileInfo() {
-      const { data: userRequest } = await api.get(`/user/${params.id}`);
+      const { data: userRequest } = await api.get(`/user/${params.id}`, {
+        headers: {
+          Authorization: `Bearer ${window.localStorage.getItem("token")}`,
+        },
+      });
       setProfile(userRequest.data);
     }
     getUserProfileInfo();

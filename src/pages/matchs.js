@@ -1,29 +1,8 @@
-import React, { useState, useEffect } from "react";
-import { Layout, Navbar, Card } from "../components";
-import api from "../services/api";
+import React, { useState } from "react";
+import { Layout, Card } from "../components";
 
 export default function MatchPage() {
   const [index, setIndex] = useState(0);
-  const [matches, setMatches] = useState([]);
-  const [likes, setLikes] = useState([]);
-
-  // useEffect(() => {
-  //   async function getInteractions() {
-  //     const [likesRequest, matchesRequest] = await Promise.all([
-  //       api.get("/interactions/liked"),
-  //       api.get("/interactions/matches"),
-  //     ]);
-
-  //     if (matchesRequest.status === 200) {
-  //       setMatches(matchesRequest.data.data);
-  //     }
-
-  //     if (likesRequest.status === 200) {
-  //       setLikes(likesRequest.data.data);
-  //     }
-  //   }
-  //   getInteractions();
-  // }, [setMatches, setLikes]);
 
   const Tabs = () => {
     const handleTab = (tab) => {
@@ -48,6 +27,9 @@ export default function MatchPage() {
       </div>
     );
   };
+
+  const likes = [];
+  const matches = [];
 
   const TabPanel = ({ children, index: selfIndex }) => {
     return selfIndex === index ? (

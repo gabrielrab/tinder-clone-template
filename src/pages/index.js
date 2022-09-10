@@ -23,7 +23,7 @@ const WithoutUsersOnRange = () => {
     >
       <Avatar
         alt="Foto de perfil"
-        img={`http://147.182.143.140:4444/img/${user.id}.jpeg`}
+        img={`https://api.yuri.engineer/img/${user.id}.jpeg`}
         size="small"
       />
       <Container textAlign="center">

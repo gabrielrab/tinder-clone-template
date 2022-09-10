@@ -1,3 +1,3 @@
 export const isAuthenticated = () => {
-  return Boolean(localStorage.getItem("token"));
+  return Boolean(window.localStorage.getItem("token"));
 };
