@@ -26,7 +26,7 @@ export default function ProfilePage() {
         <div
           className="profile-view-image"
           style={{
-            backgroundImage: `url("http://147.182.143.140:4444/img/${profile.id}.jpeg")`,
+            backgroundImage: `url("https://api.yuri.engineer/img/${profile.id}.jpeg")`,
           }}
         ></div>
       </div>

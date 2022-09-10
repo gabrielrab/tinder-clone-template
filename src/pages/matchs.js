@@ -71,11 +71,11 @@ export default function MatchPage() {
         </ul>
       </TabPanel>
       <TabPanel index={1}>
-        {/* <ul>
+        <ul>
           {matches.map((record, key) => (
             <Card profile={record} key={key} variant="small" />
           ))}
-        </ul> */}
+        </ul>
       </TabPanel>
     </Layout>
   );
